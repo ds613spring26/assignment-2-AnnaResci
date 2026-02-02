@@ -49,6 +49,9 @@ Write a version of `pos_na()` that checks whether the two input vectors have the
 > `"The vectors are not the same length."`
 
 ```{r}
+# ----------------------------
+# Question 1(i): Using if statement
+# ----------------------------
 pos_na_if <- function(x, y) {
   if (length(x) != length(y)) {
     return("The vectors are not the same length.")
