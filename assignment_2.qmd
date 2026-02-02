@@ -92,6 +92,7 @@ pos_na_noif(c(1, NA, NA, 2, NA, 4, NA), c(NA, -5, 2, 4, 4, NA, 11))
 Load the `wmata_ridership` data frame into R from <https://dcgerard.github.io/stat_412_612/data/wmata_ridership.csv>. For each month, calculate the proportion of rides made on a given day of the month. Then make box plots of the proport
 
 ```{r}
+# Finished Question 2
 library(tidyverse)
 library(lubridate)
 
