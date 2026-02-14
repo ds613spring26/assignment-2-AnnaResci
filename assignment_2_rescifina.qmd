@@ -228,6 +228,15 @@ df
 
 ```
 
+```{r}
+df <- df |>
+  rename(dept = department) |>
+  arrange(hire_date)
+
+df
+
+```
+
 1.  **Parse each record** into three separate variables:
 
     -   `name`\
