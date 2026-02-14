@@ -5,6 +5,8 @@ author: "Anna Rescifina"
 editor: visual
 ---
 
+# **Set-up for Assignment 2**
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo       = TRUE, 
                       fig.height = 3, 
@@ -14,6 +16,7 @@ ggplot2::theme_set(ggplot2::theme_bw())
 ```
 
 ```{r}
+# Load Packages 
 #| message: false
 library(tidyverse)
 
@@ -50,9 +53,9 @@ Write a version of `pos_na()` that checks whether the two input vectors have the
 > `"The vectors are not the same length."`
 
 ```{r}
-# ----------------------------
+
 # Question 1(i): Using if statement
-# ----------------------------
+
 pos_na_if <- function(x, y) {
   if (length(x) != length(y)) {
     return("The vectors are not the same length.")
@@ -68,6 +71,7 @@ Write a second version of `pos_na()` that performs the same task **without** usi
 -   You may use any other valid R mechanism (e.g., `stop()`, `stopifnot()`, or logical short‑circuiting) to handle the case where the vectors differ in length.
 
 ```{r}
+# Question 1(ii): W/O Using an If statement
 pos_na_noif <- function(x, y) {
   (length(x) == length(y)) || return("The vectors are not the same length.")
   which(is.na(x) & is.na(y))
@@ -93,7 +97,7 @@ pos_na_noif(c(1, NA, NA, 2, NA, 4, NA), c(NA, -5, 2, 4, 4, NA, 11))
 Load the `wmata_ridership` data frame into R from <https://dcgerard.github.io/stat_412_612/data/wmata_ridership.csv>. For each month, calculate the proportion of rides made on a given day of the month. Then make box plots of the proport
 
 ```{r}
-# Finished Question 2
+# Set-up Question 2
 library(tidyverse)
 library(lubridate)
 
@@ -120,7 +124,7 @@ wmata_props <- wmata %>%
   mutate(prop = rides / sum(rides)) %>%
   ungroup()
 
-# Boxplots of proportions by day-of-month across months
+# Create boxplots of proportions by day-of-month across months 
 ggplot(wmata_props, aes(x = factor(dom), y = prop)) +
   geom_boxplot() +
   labs(x = "Day of Month", y = "Proportion of monthly rides") +
@@ -223,6 +227,7 @@ records
 library(tidyverse)
 library(lubridate)
 
+#Set-up
 records <- c(
   "Steve McQueen | 2020-01-15 | HR",
   "B. Smith | 15/02/2021 | FIN",
@@ -230,9 +235,9 @@ records <- c(
   "D. Lee | 2018/07/30 | HR",
   "Alain Delon | 04-12-2020 | MKT"
 )
-
+# Part 1-6: 
 clean_df <- tibble(raw = records) %>%
-  separate(raw, into = c("name", "hire_date", "dept"), sep = "\\s*\\|\\s*") %>%
+  separate(raw, into = c("name", "hire_date", "dept"), sep = "\\s*\\|\\s*") %>% 
   mutate(
     hire_date = parse_date_time(
       hire_date,
