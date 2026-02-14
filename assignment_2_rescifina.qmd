@@ -204,6 +204,20 @@ records <- c(
   "Alain Delon | 04-12-2020 | MKT"
 )
 records
+
+```
+
+```{r}
+df <- df |>
+  mutate(
+    hire_date = parse_date_time(
+      hire_date,
+      orders = c("ymd", "dmy", "B d, Y", "Y/m/d", "d-m-Y")
+    )
+  )
+
+df
+
 ```
 
 1.  **Parse each record** into three separate variables:
