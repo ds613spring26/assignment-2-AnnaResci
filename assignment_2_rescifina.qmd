@@ -220,6 +220,14 @@ df
 
 ```
 
+```{r}
+df <- df |>
+  mutate(department = factor(department))
+
+df
+
+```
+
 1.  **Parse each record** into three separate variables:
 
     -   `name`\
